@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Route, Redirect } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 import { useContext } from "react";
@@ -32,6 +32,11 @@ const MainNavigation = () => {
             <li>
               <button onClick={logoutHandler}>Logout</button>
             </li>
+          )}
+          {!isLoggedIn && (
+            <Route>
+              <Redirect to="/auth" />
+            </Route>
           )}
         </ul>
       </nav>
